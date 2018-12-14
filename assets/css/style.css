@@ -1,0 +1,64 @@
+
+
+
+.title {
+    font-weight: bold;
+    padding-left: 1000px;
+    font-size: 20px;
+}
+.starting {
+    padding: 40px;
+    background-color: gray;
+}
+.mar-box {
+    float: left;
+    margin-right: 3px;
+    padding: 10px 30px;
+    background-color: red;
+    border: 2px solid silver;
+    z-index: 1;
+}
+
+#mario, #link, #jigglypuff, #samus {
+font: 10px;
+text-align: center;
+font-weight: bold;
+}
+
+.marPic {
+    z-index: 3;
+    width: 75px;
+    height: 75px;
+}
+
+.link-box {
+    float: left;
+    margin-right: 3px;
+    padding: 10px 30px;
+    background-color: green;
+    border: 2px solid silver;
+    
+}
+
+.jig-box {
+    float: left;
+    margin-right: 3px;
+    padding: 10px 30px;
+    background-color: pink;
+    border: 2px solid silver;
+
+}
+
+.sam-box {
+    float: left;
+    padding: 10px 30px;
+    background-color: orange;
+    border: 2px solid silver;
+}
+
+.clearfix {
+    content: "";
+    clear: both;
+    display: table;
+      
+}

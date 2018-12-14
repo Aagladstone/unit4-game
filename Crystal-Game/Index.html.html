@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>simple crystal game</title>
+  
+  <!-- Below we added some simple CSS to resize our image-->
+  <style type="text/css">
+
+    .crystal-image {
+      width: 150px;
+      height: 150px;
+      margin: 5px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- We then wrapped our crystal image in an id "#crystals" -->
+    <div id="crystals"> </div>
+    <div id="number-to-guess"> </div>
+
+    
+        <div id="wins"> Wins: 0</div>
+        <div id="losses"> Losses: 0</div>
+    
+
+  
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Lastly we removed our "alert" -->
+  <script type="text/javascript">
+
+    var wins = 0;
+    var losses = 0;
+    var counter = 0;
+     var reset = 0;
+    var isCalculated = false;
+
+     $(document).ready(function() {
+
+  
+   
+
+  var targetnumber = Math.floor(Math.random() * 120) + 19; //math.random to create a random number between 19-120
+
+ function getRndInteger() {
+    var targetnumber = Math.floor(Math.random() * 120) + 19;
+    }
+    getRndInteger();
+
+    var numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
+    Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
+
+    
+    $("#number-to-guess").text(targetnumber); //displays target number in div 
+    
+
+    for(var i = 0; i < numberOptions.length; i++) {
+
+      var imageCrystal = $("<img>");
+        imageCrystal.addClass("crystal-image");
+        imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg")
+        imageCrystal.attr("data-crystalValue", numberOptions[i]);
+        $("#crystals").append(imageCrystal);
+      
+    }
+var reset = 0;
+  
+    
+
+    $(".crystal-image").on('click', function() {
+
+        
+
+        // if(isCalculated) { 
+        //      return false;
+        //     }
+
+        
+
+      var crystalValue = $(this).attr("data-crystalValue");
+      crystalValue = parseInt(crystalValue);
+      counter = counter + crystalValue;
+      alert("New Score: " + counter);
+      if(counter === targetnumber) {
+        wins++;
+        console.log("Wins: " + wins);
+        alert("You Win!");        
+        reset++;
+        
+      }
+        else if (counter > targetnumber) {
+            function loser() {
+        losses++;
+        console.log("Losses: " + losses);
+        alert("You Lose!");        
+        }
+        loser();
+        reset++;
+          
+      }
+
+function resetGame() {
+            // $("#crystals").empty();
+
+        targetnumber = Math.floor(Math.random() * 120) + 19;
+             $("#number-to-guess").text(targetnumber);
+        numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
+             Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
+
+        counter = 0;
+        reset = 0;
+        // isCalculated = false;
+    }
+
+      if(reset > 0) {
+        
+        resetGame();
+        
+        getRndInteger();
+        console.log(numberOptions);
+      }
+
+      $("#wins").text("Wins: " + wins);
+      $("#losses").text("Losses: " + losses);
+
+
+    })
+
+     });
+    
+
+    
+
+
+
+
+
+  </script>
+</body>
+</html>
