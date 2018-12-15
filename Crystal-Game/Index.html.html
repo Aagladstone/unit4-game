@@ -36,11 +36,13 @@
     var losses = 0;
     var counter = 0;
      var reset = 0;
-    var isCalculated = false;
+    // var crystalValue = [];
 
      $(document).ready(function() {
 
-  
+  // for( var i = 0; i < 4; i++) {
+  //   crystalValue.push(Math.floor(Math.random() *12 ) + 1)
+  // }
    
 
   var targetnumber = Math.floor(Math.random() * 120) + 19; //math.random to create a random number between 19-120
@@ -50,13 +52,18 @@
     }
     getRndInteger();
 
-    var numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
-    Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
 
+    
+ 
     
     $("#number-to-guess").text(targetnumber); //displays target number in div 
-    
+  
+var reset = 0;
 
+   var numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
+    Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
+
+        
     for(var i = 0; i < numberOptions.length; i++) {
 
       var imageCrystal = $("<img>");
@@ -66,22 +73,16 @@
         $("#crystals").append(imageCrystal);
       
     }
-var reset = 0;
-  
     
+  
 
     $(".crystal-image").on('click', function() {
 
         
-
-        // if(isCalculated) { 
-        //      return false;
-        //     }
-
-        
-
+      
       var crystalValue = $(this).attr("data-crystalValue");
       crystalValue = parseInt(crystalValue);
+        
       counter = counter + crystalValue;
       alert("New Score: " + counter);
       if(counter === targetnumber) {
@@ -101,23 +102,27 @@ var reset = 0;
         reset++;
           
       }
-
-function resetGame() {
+//make another for loop generating the random numbers and pushing them into "numberOptions", 
+//then we can clear out the numberOptions and generate them again. 
+function resetGame(numberOptions) {
             // $("#crystals").empty();
 
         targetnumber = Math.floor(Math.random() * 120) + 19;
              $("#number-to-guess").text(targetnumber);
-        numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
-             Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
+             numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
+    Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
+
+
+
 
         counter = 0;
         reset = 0;
-        // isCalculated = false;
-    }
+         }
 
       if(reset > 0) {
         
         resetGame();
+ 
         
         getRndInteger();
         console.log(numberOptions);
