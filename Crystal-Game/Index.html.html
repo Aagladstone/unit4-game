@@ -3,12 +3,14 @@
 <head>
   <title>simple crystal game</title>
   
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
   <!-- Below we added some simple CSS to resize our image-->
   <style type="text/css">
 
     .crystal-image {
-      width: 150px;
-      height: 150px;
+      width: 125px;
+      height: 125px;
       margin: 5px;
     }
   </style>
@@ -17,128 +19,35 @@
 <body>
 
   <!-- We then wrapped our crystal image in an id "#crystals" -->
+    <!-- <div id="crystals"> </div> -->
+    <p><h1> Crystal Collection Game! </h1></p>
+    <row>
+
+    <p> You will be given a random number at the start of the game.</p>
+
+    <p>Here are four crystals below. By clicking on a crystal you will add a specific amouint of points to your total score.</p>
+
+    <p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
+
+    <p>The value of each crystal is hidden from you until you click on it.</p>
+
+    <p>Each time when the game starts, the game will change the values of each crystal. </p>
+ </row>
     <div id="crystals"> </div>
     <div id="number-to-guess"> </div>
 
-    
+        <div id="total-score"> 0 </div>
         <div id="wins"> Wins: 0</div>
         <div id="losses"> Losses: 0</div>
     
-
+        <div id="number-of-clicks"> 0 </div>
+        <div id="high-score"> High Score:   </div>
   
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Lastly we removed our "alert" -->
-  <script type="text/javascript">
-
-    var wins = 0;
-    var losses = 0;
-    var counter = 0;
-     var reset = 0;
-    // var crystalValue = [];
-
-     $(document).ready(function() {
-
-  // for( var i = 0; i < 4; i++) {
-  //   crystalValue.push(Math.floor(Math.random() *12 ) + 1)
-  // }
-   
-
-  var targetnumber = Math.floor(Math.random() * 120) + 19; //math.random to create a random number between 19-120
-
- function getRndInteger() {
-    var targetnumber = Math.floor(Math.random() * 120) + 19;
-    }
-    getRndInteger();
-
-
-    
- 
-    
-    $("#number-to-guess").text(targetnumber); //displays target number in div 
-  
-var reset = 0;
-
-   var numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
-    Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
-
-        
-    for(var i = 0; i < numberOptions.length; i++) {
-
-      var imageCrystal = $("<img>");
-        imageCrystal.addClass("crystal-image");
-        imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg")
-        imageCrystal.attr("data-crystalValue", numberOptions[i]);
-        $("#crystals").append(imageCrystal);
-      
-    }
-    
-  
-
-    $(".crystal-image").on('click', function() {
-
-        
-      
-      var crystalValue = $(this).attr("data-crystalValue");
-      crystalValue = parseInt(crystalValue);
-        
-      counter = counter + crystalValue;
-      alert("New Score: " + counter);
-      if(counter === targetnumber) {
-        wins++;
-        console.log("Wins: " + wins);
-        alert("You Win!");        
-        reset++;
-        
-      }
-        else if (counter > targetnumber) {
-            function loser() {
-        losses++;
-        console.log("Losses: " + losses);
-        alert("You Lose!");        
-        }
-        loser();
-        reset++;
-          
-      }
-//make another for loop generating the random numbers and pushing them into "numberOptions", 
-//then we can clear out the numberOptions and generate them again. 
-function resetGame(numberOptions) {
-            // $("#crystals").empty();
-
-        targetnumber = Math.floor(Math.random() * 120) + 19;
-             $("#number-to-guess").text(targetnumber);
-             numberOptions = [Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1),
-    Math.floor((Math.random() * 12) + 1), Math.floor((Math.random() * 12) + 1)];
-
-
-
-
-        counter = 0;
-        reset = 0;
-         }
-
-      if(reset > 0) {
-        
-        resetGame();
- 
-        
-        getRndInteger();
-        console.log(numberOptions);
-      }
-
-      $("#wins").text("Wins: " + wins);
-      $("#losses").text("Losses: " + losses);
-
-
-    })
-
-     });
-    
-
-    
-
+  <script type="text/javascript" src="assets/javascript/game.js">
 
 
 

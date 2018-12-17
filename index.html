@@ -1,156 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Smash Bros RPG</title>
-
-  <!-- Added link to the jQuery Library -->
+  <title>simple crystal game</title>
+  
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+  <!-- Below we added some simple CSS to resize our image-->
+  <style type="text/css">
+
+    .crystal-image {
+      width: 125px;
+      height: 125px;
+      margin: 5px;
+    }
+  </style>
 
 </head>
-
 <body>
-  <row >
-<p class="title">Super Smash Bros RPG</p>
-</row>
-  <section class="mar-box", class="fighter" >
-  <p id="mario">Mario</p>
 
-<img class="marPic" href="assets/images/Mario-Fireball">
+  <!-- We then wrapped our crystal image in an id "#crystals" -->
+    <!-- <div id="crystals"> </div> -->
+    <p><h1> Crystal Collection Game! </h1></p>
+    <row>
 
-<p id="marHealth"> </p>
-</section>
+    <p> You will be given a random number at the start of the game.</p>
 
+    <p>Here are four crystals below. By clicking on a crystal you will add a specific amouint of points to your total score.</p>
 
-<section class="link-box", class="fighter">
-  <p id="link">Link</p>
+    <p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
 
-  <img class="marPic" href="assets/images/Link-Pose">
+    <p>The value of each crystal is hidden from you until you click on it.</p>
 
-<p id="linkHealth"> </p>
-</section>
+    <p>Each time when the game starts, the game will change the values of each crystal. </p>
+ </row>
+    <div id="crystals"> </div>
+    <div id="number-to-guess"> </div>
 
-<section class="jig-box", class="fighter">
-  <p id="jigglypuff">Jigglypuff</p>
+        <div id="total-score"> 0 </div>
+        <div id="wins"> Wins: 0</div>
+        <div id="losses"> Losses: 0</div>
+    
+        <div id="number-of-clicks"> 0 </div>
+        <div id="high-score"> High Score:   </div>
+  
 
-  <img class="marPic" href="assets/images/Jiggle">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-<p id="jigHealth"> </p>
-</section>
-
-<section class="sam-box", class="fighter">
-  <p id="samus">Samus</p>
-
-  <img class="marPic" href="assets/images/Samus-Pose">
-
-<p id="samusHealth"> </p>
-</section>
-
-<div class=clearfix></div>
-
-<row id="your-character">
-    <h2>Your Character</h2>
-   
-</row>
-
-<br> <br> <br> <br> <br>
-
-<row>
-    <h2>Enemies Available to Attack</h2>
-</row>
+  <!-- Lastly we removed our "alert" -->
+  <script type="text/javascript" src="assets/javascript/game.js">
 
 
 
-  <button id="attack">Attack</button>
-  <!-- <button id="reset">Battle again</button> -->
 
-  <row>
-      <h2>Defender</h2>
-  </row>
-
-  <p id="attackText"> </p>
-  <p id="conatkText"> </p>
-
-
-  <script type="text/javascript">
-
-    var marHealth = 120;
-    var jigHealth = 180;
-    var linkHealth = 100;
-    var samusHealth = 150;
-    var win = 0;
-    var loss = 0;
-    var reset = 0;
-    var marAttack = 6;
-    var marConAtk = 10;
-    var linkAttack = 5;
-    var linkCntAttack = 5;
-    var jigAttack = 10;
-    var jigCntAttack = 25;
-    var samusAttack = 8;
-    var samusCntAttack = 20;
-    var attacker = 0; //needs to start at zero, but then clicked, we move it to 1, when means we don't have to worry about moving any boxes. Our first function is going to be is "if attacker = 0". 
-    var defender = 0; //neds to start at zero, but when clicked, we move it to 1, when means we don't have to worry about moving any boxes. 
-
-    // This document.ready isn't necessary in this example... but is needed in cases where the HTML is complex.
-    // This code makes sure that the JavaScript doesn't get run until the HTML is finished loading
-    // It's useful to become familiar with now.
-
-    $(document).ready(function() {
-
-      // if (attacker === 0) {
-        // $()
-      // }
-    $("#marHealth").html("Health: "+ marHealth)
-    $("#linkHealth").html("Health: "+ linkHealth)
-    $("#jigHealth").html("Health: "+ jigHealth)
-    $("#samusHealth").html("Health: "+ samusHealth)
-
-
-      $(".mar-box").on("click", function() {
-        alert("Mario attacked for " + marAttack);
-        alert("Mario rolled for "+ marConAtk);
-        // $(".mar-box").css("position", "absolute");
-        // $(".mar-box").animate({down: "+=200px"}, "normal");
-        })
-
-        
-      
-      
-      $(".link-box").on("click", function() {
-         alert("Link attacked for " + linkAttack);
-        alert("Link rolled for "+ linkCntAttack);
-      })
-
-      
-      $(".jig-box").on("click", function() {
-         alert("Jig attacked for " + jigAttack);
-        alert("Jig rolled for "+ jigCntAttack);
-      })
-
-      
-      $(".sam-box").on("click", function() {
-         alert("Sam attacked for " + samusAttack);
-        alert("Sam rolled for "+ samusCntAttack);
-      })
-
-      //Needs to create the for(loop) to create the characters, but lets get the whole code working first.
-      // if(attacker===0){
-      //   if($(".fighter").on("click", function() {
-      //     this.animate({ =+ down})
-        }))
-      }
-      
-     
-      });
-
-</script>
-
+  </script>
 </body>
-
 </html>
